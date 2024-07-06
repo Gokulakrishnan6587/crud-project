@@ -81,6 +81,24 @@ function Api() {
             )
     }
 
+    //delete user
+    function deleteUser(id){
+        fetch(`https://jsonplaceholder.typicode.com/users/${id}`,
+        {
+            method: 'DELETE'
+        }).then((res) => res.json())
+        .then((json) => {
+            setUsers((users)=>{
+                return users.filter(user => user.id !== id)
+            })
+            appToaster.show({
+                message: "User Updated successfully",
+                intent: "success",
+                timeout: 5000
+            })
+    })
+}
+
     return (
         <>
             <div className='app'>
@@ -106,7 +124,8 @@ function Api() {
                                     onChange={value => onChangeHandler(user.id, 'website', value)} /></td>
                                 <td data-label="Action" className="action-buttons">
                                     <Button intent='warning' onClick={() => updateUser(user.id)}>Update</Button>
-                                    <Button intent='danger'>Delete</Button>
+                                    &nbsp;
+                                    <Button intent='danger' onClick={()=> deleteUser(user.id)}>Delete</Button>
                                 </td>
                             </tr>
                         )}
