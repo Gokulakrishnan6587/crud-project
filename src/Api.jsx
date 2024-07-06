@@ -62,9 +62,18 @@ function Api() {
         })
     }
 
-    // Update user button
-    function updateUser(id) {
-        const user = users.find((user) => user.id === id);
+// Update user function
+function updateUser(id) {
+    const user = users.find((user) => user.id === id);
+
+    // Check if any data is changed
+    // if (newEmail === "" || newWebsite == "") {
+    //     appToaster.show({
+    //         message: "Please fill all fields",
+    //         intent: "warning",
+    //         timeout: 5000
+    //     });
+    // } else {
         fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
             method: "PUT",
             body: JSON.stringify(user),
@@ -75,11 +84,13 @@ function Api() {
             .then((json) =>
                 appToaster.show({
                     message: "User Updated successfully",
-                    intent: "warning",
+                    intent: "success",
                     timeout: 5000
                 })
-            )
-    }
+            );
+    
+}
+
 
     //delete user
     function deleteUser(id){
