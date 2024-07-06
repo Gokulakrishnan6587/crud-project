@@ -75,7 +75,7 @@ function Api() {
             .then((json) =>
                 appToaster.show({
                     message: "User Updated successfully",
-                    intent: "success",
+                    intent: "warning",
                     timeout: 5000
                 })
             )
@@ -92,8 +92,8 @@ function Api() {
                 return users.filter(user => user.id !== id)
             })
             appToaster.show({
-                message: "User Updated successfully",
-                intent: "success",
+                message: "User Deleted successfully",
+                intent: "danger",
                 timeout: 5000
             })
     })

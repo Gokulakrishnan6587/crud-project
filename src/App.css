@@ -74,4 +74,37 @@ h1 {
   .bp4-html-table .action-buttons button {
       margin: 5px;
   }
+
+  .bp4-html-table input, .bp4-html-table .bp4-editable-text {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 5px;
+      background-color: #f0f8ff; /* Match background color */
+  }
+
+  .bp4-html-table tfoot td {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .bp4-html-table tfoot td input {
+      width: 80%;
+      font-size: 10px; /* Increase font size for better readability */
+      padding: 10px; /* Increase padding for larger input fields */
+      box-sizing: border-box;
+      border-radius: 20px;
+      margin-left: 18px;
+  }
+
+  /* Additional styles to ensure full width for last 3 input fields */
+  .bp4-html-table tfoot tr td {
+      padding: 0; /* Remove padding for full width */
+  }
+
+  .bp4-html-table tfoot tr td input {
+      width: calc(100% - 20px); /* Full width minus padding */
+      margin-left: -10px; /* Adjust margin to fit screen */
+      margin-right: -10px; /* Adjust margin to fit screen */
+  }
 }
